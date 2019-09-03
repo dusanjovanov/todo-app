@@ -31,7 +31,7 @@
     "@types/node": "^12.7.3"
   },
   "scripts": {
-    "server:dev": "cross-env NODE_ENV=DEVELOPMENT npm-run-all -p server:dev:parcel server:dev:nodemon client:dev",
+    "dev": "cross-env NODE_ENV=DEVELOPMENT npm-run-all -p server:dev:parcel server:dev:nodemon client:dev",
     "server:dev:parcel": "parcel watch --target=node10 server/src/index.tsx -d dist/server",
     "server:dev:nodemon": "nodemon dist/server/index.js",
     "server:build": "parcel build --target=node10 server/src/index.tsx -d build/server",
