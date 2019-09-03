@@ -1,0 +1,5 @@
+[
+  { "id": 1, "text": "Learn React", "isDone": true },
+  { "id": 2, "text": "Make the Chrome T-Rex game", "isDone": false },
+  { "id": 3, "text": "Make the Todo App", "isDone": false }
+]

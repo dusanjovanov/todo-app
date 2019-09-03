@@ -1,0 +1,41 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "server/build/index.js",
+  "author": "Dusan Jovanov <jovanovdusan1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "classnames": "^2.2.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-transition-group": "^4.2.2",
+    "redux": "^4.0.4",
+    "typesafe-actions": "^4.4.2",
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "cross-env": "^5.2.1",
+    "typescript": "^3.6.2",
+    "@types/classnames": "^2.2.9",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.2",
+    "@types/redux": "^3.6.0",
+    "npm-run-all": "^4.1.5",
+    "@types/express": "^4.17.1",
+    "@types/express-validator": "^3.0.0",
+    "@types/node": "^12.7.3"
+  },
+  "scripts": {
+    "server:dev": "cross-env NODE_ENV=DEVELOPMENT npm-run-all -p server:dev:parcel server:dev:nodemon client:dev",
+    "server:dev:parcel": "parcel watch --target=node10 server/src/index.tsx -d dist/server",
+    "server:dev:nodemon": "nodemon dist/server/index.js",
+    "server:build": "parcel build --target=node10 server/src/index.tsx -d build/server",
+    "client:dev": "cross-env NODE_ENV=DEVELOPMENT parcel watch client/index.html --public-url /static -d dist/client",
+    "client:build": "parcel build client/index.html -d build/client --public-url /static"
+  }
+}
