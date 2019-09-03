@@ -1,6 +1,7 @@
 import { createAsyncAction, createStandardAction } from "typesafe-actions";
 import { Todo } from "../types";
 import { Filter } from "./../types";
+import { API_ENDPOINT } from "../config";
 
 export const setFilter = createStandardAction("SET_FILTER")<Filter>();
 
@@ -12,7 +13,7 @@ export const addTodoActions = createAsyncAction(
 
 export const addTodo = (text: string) => dispatch => {
   dispatch(addTodoActions.request());
-  fetch("http://localhost:5000/api/todos", {
+  fetch(`${API_ENDPOINT}/todos`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -38,7 +39,7 @@ export const toggleTodoActions = createAsyncAction(
 
 export const toggleTodo = (id: number) => dispatch => {
   dispatch(toggleTodoActions.request());
-  fetch(`http://localhost:5000/api/todos/${id}/toggle`, {
+  fetch(`${API_ENDPOINT}/todos/${id}/toggle`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",
@@ -63,7 +64,7 @@ export const deleteTodoActions = createAsyncAction(
 
 export const deleteTodo = (id: number) => dispatch => {
   dispatch(deleteTodoActions.request());
-  fetch(`http://localhost:5000/api/todos/${id}`, {
+  fetch(`${API_ENDPOINT}/todos/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
